@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  budaclient: &budaclient
+    build: .
+    container_name: buda_client
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+  test: &test
+    build: .
+    container_name: test
+
+    command: python manage.py test
+
+    ports:
+      - 8000:8000
