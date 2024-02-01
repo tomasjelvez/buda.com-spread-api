@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  budaclient: &budaclient
+  spreadapi: &spreadapi
     build: .
     container_name: buda_client
     command: python manage.py runserver 0.0.0.0:8000

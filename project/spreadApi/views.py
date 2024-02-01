@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from budaclient.BudaApiConsumer.markets import BudaApi
+from spreadApi.BudaApiConsumer.markets import BudaApi
 
 # Create your views here.
 

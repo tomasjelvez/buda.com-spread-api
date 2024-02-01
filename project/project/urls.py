@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from budaclient.views import BudaMarketSpreadApi, BudaMarketSpreadDetailApi
+from spreadApi.views import BudaMarketSpreadApi, BudaMarketSpreadDetailApi
 
 urlpatterns = [
     path("admin/", admin.site.urls),

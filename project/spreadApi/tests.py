@@ -2,31 +2,21 @@ from django.test import TestCase
 from rest_framework.test import APITestCase
 from unittest.mock import call, patch
 
-from budaclient.BudaApiConsumer.markets import BudaApi
+from spreadApi.BudaApiConsumer.markets import BudaApi
 
 
-class BudaClientTests(APITestCase):
+class SpreadApiTests(APITestCase):
     def setUp(self):
         self.username = "john"
         self.email = "lennon@thebeatles.com"
         self.password = "password"
 
 
-# Views
-##@patch("budaclient.BudaApiConsumer.markets.BudaApi.get_all_markets_spread")
-##def testBudaMarketSpreadApi(self, mock_get_all_markets_spread):
-##    response = self.client.get("/spread/markets")
-##    self.assertEqual(response.status_code, 200)
-##
-##@patch("budaclient.BudaApiConsumer.markets.BudaApi.get_market_spread")
-##def testBudaMarketSpreadDetailApi(self, mock_get_market_spread):
-##    response = self.client.get("/spread/markets/BTC-CLP")
-##    self.assertEqual(response.status_code, 200)
 class BudaApiConsumer(APITestCase):
     def setUp(self):
         self.client = BudaApi()
 
-    @patch("budaclient.BudaApiConsumer.markets.BudaApi.get_market_trades")
+    @patch("spreadApi.BudaApiConsumer.markets.BudaApi.get_market_trades")
     def test_get_market_spread(self, mock_get_market_trades):
         mock_get_market_trades.return_value = {
             "trades": {
@@ -91,8 +81,8 @@ class BudaApiConsumer(APITestCase):
         self.assertEqual(response, 783563.9900000021)
         mock_get_market_trades.assert_called_once_with("BTC-CLP")
 
-    @patch("budaclient.BudaApiConsumer.markets.BudaApi.get_markets")
-    @patch("budaclient.BudaApiConsumer.markets.BudaApi.get_market_spread")
+    @patch("spreadApi.BudaApiConsumer.markets.BudaApi.get_markets")
+    @patch("spreadApi.BudaApiConsumer.markets.BudaApi.get_market_spread")
     def test_get_all_markets_spread(self, mock_get_market_spread, mock_get_markets):
         mock_get_markets.return_value = {
             "markets": [
