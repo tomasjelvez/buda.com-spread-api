@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from spreadApi.views import BudaMarketSpreadApi, BudaMarketSpreadDetailApi
+from spreadApi.views import (
+    AlertSpreadPollingApi,
+    BudaMarketSpreadApi,
+    BudaMarketSpreadDetailApi,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("spread/markets", BudaMarketSpreadApi.as_view()),
     path("spread/markets/<str:mid>/", BudaMarketSpreadDetailApi().as_view()),
+    path("spread/alert/<str:mid>/", AlertSpreadPollingApi().as_view()),
 ]

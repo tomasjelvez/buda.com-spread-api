@@ -5,16 +5,9 @@ from unittest.mock import call, patch
 from spreadApi.BudaApiConsumer.markets import BudaApi
 
 
-class SpreadApiTests(APITestCase):
+class BudaApiConsumerTests(APITestCase):
     def setUp(self):
-        self.username = "john"
-        self.email = "lennon@thebeatles.com"
-        self.password = "password"
-
-
-class BudaApiConsumer(APITestCase):
-    def setUp(self):
-        self.client = BudaApi()
+        self.buda_client = BudaApi()
 
     @patch("spreadApi.BudaApiConsumer.markets.BudaApi.get_market_trades")
     def test_get_market_spread(self, mock_get_market_trades):
@@ -77,7 +70,7 @@ class BudaApiConsumer(APITestCase):
                 ],
             }
         }
-        response = self.client.get_market_spread("BTC-CLP")
+        response = self.buda_client.get_market_spread("BTC-CLP")
         self.assertEqual(response, 783563.9900000021)
         mock_get_market_trades.assert_called_once_with("BTC-CLP")
 
@@ -463,7 +456,7 @@ class BudaApiConsumer(APITestCase):
                 },
             ]
         }
-        self.client.get_all_markets_spread()
+        self.buda_client.get_all_markets_spread()
         self.assertEqual(
             mock_get_market_spread.call_args_list,
             [call(market["id"]) for market in mock_get_markets.return_value["markets"]],
