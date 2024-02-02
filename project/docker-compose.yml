@@ -4,9 +4,9 @@ services:
   spreadapi: &spreadapi
     build: .
     container_name: buda_client
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8080
     ports:
-      - "8000:8000"
+      - "8080:8080"
   test: &test
     build: .
     container_name: test
