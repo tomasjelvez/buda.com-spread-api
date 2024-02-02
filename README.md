@@ -22,4 +22,5 @@ This will run the tests and then keep the server up.
 ## Considerations
 
 - The base_url of the API is in localhost, considering that this is not a production environment project
-- For the polling system, since the developer doesn´t know whether the current spread should be given or if it should be calculated by the system when the request is received, the polling endpoint supports both options: you can request the endpoint `spread/alert/<mid>` or you can pass the current spread as query_params `spread/alert/<mid>?spread=<value>`
+- The endpoint designed for do the polling operation supports both options: you can request the endpoint `spread/alert/<mid>` so the system calculates the current spread on its own, or you can pass the current spread as query_params `spread/alert/<mid>?spread=<value>`
+- Considering that the polling system could hit an endpoint multiple times in a short period of time, we developed a json file "cache" system for the getting the alert spread. This way, we can eficiently read a file and access the value that we need to compare, instead of looking for it on a DataBase, which is the mainstream approach.
