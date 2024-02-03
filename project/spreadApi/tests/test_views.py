@@ -1,10 +1,6 @@
-from django.test import RequestFactory, TestCase
 from django.urls import reverse
-import requests
 from rest_framework.test import APITestCase
-from unittest.mock import call, mock_open, patch
-from rest_framework.request import Request
-from django.http import HttpRequest
+from unittest.mock import mock_open, patch
 from spreadApi.BudaApiConsumer.markets import BudaApi
 from spreadApi.views import (
     AlertSpreadPollingApi,
