@@ -2,7 +2,7 @@
 
 ## Description
 
-This Project helps you to get the spread for one or every markets present on BudaAPI
+This Project helps you to get the spread for one or every market present on BudaAPI
 
 ## Usage
 
