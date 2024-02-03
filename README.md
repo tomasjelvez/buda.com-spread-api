@@ -12,6 +12,7 @@ The API Documentation is available in [this link](https://documenter.getpostman.
 
 ### With Docker
 
+Make sure you have the port 8080 free.
 Clone this repo and then run:
 
 ```console
@@ -23,6 +24,7 @@ This will run the tests and then keep the server up.
 
 ### Local
 
+Make sure you have the port 8080 free.
 Clone this repo and then run:
 
 ```console
