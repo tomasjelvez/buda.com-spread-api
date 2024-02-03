@@ -10,6 +10,8 @@ The API Documentation is available in [this link](https://documenter.getpostman.
 
 ## Run
 
+### With Docker
+
 Clone this repo and then run:
 
 ```console
@@ -19,8 +21,30 @@ foo@bar:~/buda.com-spread-api/project$ docker-compose up
 
 This will run the tests and then keep the server up.
 
+### Local
+
+Clone this repo and then run:
+
+```console
+foo@bar:~/buda.com-spread-api$ cd project
+foo@bar:~/buda.com-spread-api/project$ pip install -r requirements.txt
+```
+
+#### To run the tests
+
+```console
+foo@bar:~/buda.com-spread-api/project$ python manage.py test
+```
+
+#### To run the server
+
+```console
+foo@bar:~/buda.com-spread-api/project$ python manage.py runserver
+```
+
 ## Considerations
 
 - The base_url of the API is in localhost, considering that this is not a production environment project
 - The endpoint designed for do the polling operation supports both options: you can request the endpoint `spread/alert/<mid>` so the system calculates the current spread on its own, or you can pass the current spread as query_params `spread/alert/<mid>?spread=<value>`
 - Considering that the polling system could hit an endpoint multiple times in a short period of time, we developed a json file "cache" system for the getting the alert spread. This way, we can eficiently read a file and access the value that we need to compare, instead of looking for it on a DataBase, which is the mainstream approach.
+  params `spread/alert/<mid>?spread=<value>`
