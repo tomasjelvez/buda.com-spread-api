@@ -13,7 +13,7 @@ class BudaApiConsumerTests(APITestCase):
     def test_get_market_spread(self, mock_get_market_trades):
         mock_get_market_trades.return_value = {
             "trades": {
-                "market_id": "BTC-CLP",
+                "mid": "BTC-CLP",
                 "timestamp": None,
                 "last_timestamp": "1706734965124",
                 "entries": [
